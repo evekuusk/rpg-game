@@ -1,0 +1,62 @@
+body {
+  background-color: #e4e4e4;
+  text-align: center;
+  padding-bottom: 3rem;
+}
+.functionBox {
+  display: inline-block;
+  text-align: left;
+  width: 60%;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #4a4a4a;
+  font-family: 'Open Sans', sans-serif;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+div span {
+  font-size: 1.2em;
+}
+
+#backToHome:hover {
+  background-color: #539494;
+  color: #fff;
+}
+
+.buttonsBox {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.pure-button {
+  margin: 0 auto;
+  width: 30%;
+}
+
+#fightButton, #fleeButton {
+  display: inline-block;
+}
+
+#tryAgainButton {
+  width: 50%;
+}
+
+#resultsBox {
+  text-align: center;
+}
+
+#resultsArea, #roundsCountBox {
+  width: 80%;
+  text-align: center;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid grey;
+}
+
+#roundsCountBox {
+  width: 40%;
+  margin-top: 1.75rem;
+}
