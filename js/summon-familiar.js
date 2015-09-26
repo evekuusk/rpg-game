@@ -1,9 +1,60 @@
 // ***** ------ SUMMON FAMILIAR ------ ***** //
 
-  // *** ---  RARITY --- *** //
-    // variables
+  // *** ---  GLOBAL VARIABLES --- *** //
+    // RARITY
     var numRarity = Math.floor(Math.random() * 18) + 1
     var rarity
+
+    // CLASS
+    var numMonsterClass = Math.floor(Math.random() * 18) + 1
+    var monsterClasses = ["pest", "creature", "demon", "elder god"]
+    var monsterClass
+
+    // TYPE
+    var monsterType
+    var monsterTypeList = [
+      pest = [
+        "bee", "mouse", "snake"
+      ],
+      creature = [
+        "bear", "wolf", "moose"
+      ],
+      demon = [
+        "ghost", "goblin", "succubus"
+      ],
+      elder = [
+        "gryphon", "dragon", "deity"
+      ]
+    ]
+
+    var pestMonsters = monsterTypeList[0]
+    var creatureMonsters = monsterTypeList[1]
+    var demonMonsters = monsterTypeList[2]
+    var elderGodMonsters = monsterTypeList[3]
+
+
+    // STATS
+    var strengthStatBase = Math.floor(Math.random() * 5) + 1 // random number 1 - 5
+    var healthStatBase = Math.floor(Math.random() * 50) + 1 // random number 1 - 50
+    var staminaStatBase = Math.floor(Math.random() * 10) + 1 // random number 1 - 10
+    var magicStatBase = Math.floor(Math.random() * 6) // random number 0 - 5
+
+    var strength
+    var health
+    var stamina
+    var magic
+
+    // UNDEAD
+    var undead = false
+
+    // FAMILIARS
+    var heroFamiliar
+    var bossFamiliar
+    var description
+
+
+
+  // *** ---  RARITY --- *** //
 
     function rollRarity() {
       // generate number between 1 - 18
@@ -37,34 +88,6 @@
 
 
   // *** ---  MONSTER CLASS & TYPE --- *** //
-    // used in monster class
-
-    // class variables
-    var numMonsterClass = Math.floor(Math.random() * 18) + 1
-    var monsterClass
-
-    // type variables
-    var monsterType
-    var monsterTypeList = [
-      pest = [
-        "bee", "rat", "snake"
-      ],
-      creature = [
-        "bear", "wolf", "moose"
-      ],
-      demon = [
-        "ghost", "goblin", "succubus"
-      ],
-      elder = [
-        "gryphon", "dragon", "deity"
-      ]
-    ]
-
-    var pestMonsters = monsterTypeList[0]
-    var creatureMonsters = monsterTypeList[1]
-    var demonMonsters = monsterTypeList[2]
-    var elderGodMonsters = monsterTypeList[3]
-
 
     // roll a class based on percentage probability
     function rollMonsterClass() {
@@ -97,9 +120,7 @@
     } // end of function
 
 
-
-
-
+    // roll a random monster type within a specific class
     function rollMonsterType() {
       // roll and return monsterClass
       rollMonsterClass();
@@ -128,161 +149,179 @@
 
 
 
-  // *** ---  BASE STATS --- *** //
-    // used in monster stats, human stats, npc stats, hero stats
-  // Rolling base stats
-  function rollBaseStats() {
-    // Strength: random number 5 - 10
-    strengthStatBase = Math.floor(Math.random() * 5) + 5
+  // *** ---  STATS --- *** //
 
-    // Health: random number 10 - 50
-    healthStatBase = Math.floor(Math.random() * 50) + 10
+    // Rolling base stats
+    function rollBaseStats() {
+      // Strength: random number 5 - 10
+      strengthStatBase = Math.floor(Math.random() * 5) + 5
 
-    // Stamina: random number 5 - 10
-    staminaStatBase = Math.floor(Math.random() * 10) + 5
+      // Health: random number 10 - 50
+      healthStatBase = Math.floor(Math.random() * 50) + 10
 
-    // Magic: random number 1 - 3
-    magicStatBase = Math.floor(Math.random() * 3) + 1
+      // Stamina: random number 5 - 10
+      staminaStatBase = Math.floor(Math.random() * 10) + 5
 
-    // Resilience: random number 5 - 10
-    resilienceStatBase = Math.floor(Math.random() * 10) + 5
-  }
+      // Magic: random number 0 - 5
+      magicStatBase = Math.floor(Math.random() * 6) // random number 0 - 5
+    }
 
-  // *** --- MONSTERS --- *** //
-
-    // *** --- MONSTER OBJECT PROPERTIES LIST
-      // Base Stats
-      var monsterStatsList = ["strength", "health", "stamina", "magic", "resilience", "rarity"]
-      var rarityStat = ["common", "uncommon", "rare", "legendary"]
-      var strengthStatBase = Math.floor(Math.random() * 5) + 1 // random number 1 - 5
-      var healthStatBase = Math.floor(Math.random() * 50) + 1 // random number 1 - 50
-      var staminaStatBase = Math.floor(Math.random() * 10) + 1 // random number 1 - 10
-      var magicStatBase = Math.floor(Math.random() * 11) // random number 0 - 10
-      var resilienceStatBase = Math.floor(Math.random() * 10) + 1 // random number 1 - 5
-
-      // Working Stats
-      var strength
-      var health
-      var stamina
-      var magic
-      var resilience
-
-      // Classes & Types
-      var monsterClasses = ["pest", "creature", "demon", "elder god"]
-
-      // Familiar
-      var heroFamiliar
-
-
-
-    // *** --- RANDOM MONSTER GENERATOR SCRIPTS
-
+    // roll stats
     function rollStatsForMonster() {
 
       rollBaseStats(); // will define standard base stats in format ___BaseStat
       rollMonsterType(); // will return generated monsterClass & generated monsterType
       rollRarity(); // will return generated rarity
 
-
       if (monsterClass == "pest") {
         strength = strengthStatBase
         health = healthStatBase
         stamina = staminaStatBase - 1
-        magic = magicStatBase + 1
-        resilience = resilienceStatBase + 1
+        magic = magicStatBase - 2
 
 
           // add more internal conditionals testing if the index of pestMonsters selected is in the lower, middle, or upper third...this will be to affect final random stats.
 
-      } // end of if pest
+      } // end of IF PEST conditional
 
       if (monsterClass == "creature") {
         strength = strengthStatBase + 5
         health = healthStatBase + 25
         stamina = staminaStatBase + 4
         magic = magicStatBase - 1
-        resilience = resilienceStatBase + 10
 
 
           // add more internal conditionals testing if the index of pestMonsters selected is in the lower, middle, or upper third...this will be to affect final random stats.
 
-      } // end of if creature
+      } // end of IF CREATURE conditional
 
       if (monsterClass == "demon") {
         strength = strengthStatBase + 10
         health = healthStatBase + 75
         stamina = staminaStatBase + 4
-        magic = magicStatBase + 10
-        resilience = resilienceStatBase + 7
+        magic = magicStatBase + (Math.floor(Math.random() * 11)) - 1
 
 
 
           // add more internal conditionals testing if the index of pestMonsters selected is in the lower, middle, or upper third...this will be to affect final random stats.
 
-      } // end of if demon
+      } // end of IF DEMON conditional
 
       if (monsterClass == "elder god") {
         strength = strengthStatBase + 30
         health = healthStatBase + 150
         stamina = staminaStatBase + 20
-        magic = magicStatBase + 25
-        resilience = resilienceStatBase + 20
+        magic = magicStatBase + (Math.floor(Math.random() * 21)) - 1
 
 
           // add more internal conditionals testing if the index of pestMonsters selected is in the lower, middle, or upper third...this will be to affect final random stats.
 
 
-      } // end of if elder god
+      } // end of IF ELDER GOD conditional
 
-      // ADJUST STATS BASED ON RARITY
+
+      // adjust stats based on rarity
       if (rarity == "legendary") {
+        // LEGENDARY
         strength = strength + 15
         health = health + 50
         stamina = stamina + 8
         magic = magic + 10
-        resilience = resilience + 5
+
+          if (magic <= -1) {
+            undead = true;
+            health = health + 200
+          }
+
       } else if (rarity == "rare") {
+        // RARE
         strength = strength + 8
         health = health + 25
         stamina = stamina + 5
         magic = magic + 5
-        resilience = resilience + 3
+
+          if (magic <= -1) {
+            undead = true;
+            health = health + 200
+          }
+
       } else if (rarity == "uncommon") {
+        // UNCOMMON
         strength = strength + 3
         health = health + 15
         stamina = stamina + 2
         magic = magic + 2
-        resilience = resilience + 1
-      } // common value stays as the stat generated by adjusting for class & type
+
+          if (magic <= -1) {
+            undead = true;
+            health = health + 200
+          }
+
+      }  else if ((rarity == "common") && (magic <= -1)) {
+        undead = true;
+        health = health + 200
+      }// COMMON value stays as the stat generated by adjusting for class & type
 
       console.log("STATS:")
-      console.log("STRENGTH: " + strength + ", " + "HEALTH: " + health + ", " + "STAMINA: " + stamina + ", " + "MAGIC: " + magic + ", " + "RESILIENCE: " + resilience + ".");
+      console.log("STRENGTH: " + strength + ", " + "HEALTH: " + health + ", " + "STAMINA: " + stamina + ", " + "MAGIC: " + magic + ", " + "UNDEAD: " + undead + ".");
 
     }
 
 
 
-    // *** --- FINAL FAMILIAR OBJECT
+  // *** --- SUMMON FAMILIAR -- *** //
+    // familiar object
     function familiar() {
-        this.name = rarity + " " + monsterType
+        this.description = description;
         this.type = monsterType;
         this.class = monsterClass;
         this.strength = strength;
         this.health = health;
         this.stamina = stamina;
         this.magic = magic;
-        this.resilience = resilience;
+        this.undead = undead;
+    }
+
+    // SUMMON HERO FAMILIAR
+    function summonFamiliar() {
+      rollStatsForMonster();
+      description = rarity + " " + monsterType
+
+      if (undead == true) {
+        console.log("You have summoned a new UNDEAD " + description.toUpperCase() + " familiar!");
+        description = "undead " + rarity + " " + monsterType
+      } else {
+        console.log("You have summoned a new " + description.toUpperCase() + " familiar!");
+      }
+
+      var newFamiliar = new familiar(description, monsterType, monsterClass, strength, health, stamina, magic);
+
+      heroFamiliar = newFamiliar
+      return heroFamiliar
     }
 
 
-  // SUMMON FAMILIAR
-    function summonFamiliar() {
+
+    // SUMMON BOSS FAMILIAR
+    function summonBossFamiliar() {
       rollStatsForMonster();
-      var name = rarity + " " + monsterType
+      description = rarity + " " + monsterType
 
-      console.log("You have generated a(n) " + rarity.toUpperCase() + " " + monsterType.toUpperCase() + " in the class of " + monsterClass.toUpperCase() + ".");
+      // adjust stats
+      strength = strength + 10
+      health = health + 50
+      stamina = stamina + 5
+      magic = magic + 7
 
-      var newFamiliar = new familiar(name, monsterType, monsterClass, strength, health, stamina, magic, resilience);
-      heroFamiliar = newFamiliar
-      return heroFamiliar
+      if (undead == true) {
+        console.log("Your enemy has summoned a new UNDEAD " + description.toUpperCase() + " familiar!");
+        description = "undead " + rarity + " " + monsterType
+      } else {
+        console.log("Your enemy has summoned a new " + description.toUpperCase() + " familiar!");
+      }
+
+      var newBossFamiliar = new familiar(description, monsterType, monsterClass, strength, health, stamina, magic, resilience);
+
+      bossFamiliar = newBossFamiliar
+      return bossFamiliar
     }
