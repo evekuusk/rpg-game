@@ -50,7 +50,58 @@
   }
 
 
-  function rollStatsForMonster(monsterClass) {
+/*
+
+  // 1...COMMON
+  // 2...COMMON
+  // 3...COMMON
+  // 4...COMMON
+  // 5...COMMON
+  // 6...COMMON
+  // 7...COMMON
+  // 8...COMMON
+  // 9...COMMON
+    // Common = 50% chance.
+
+  // 10...UNCOMMON
+  // 11...UNCOMMON
+  // 12...UNCOMMON
+  // 13...UNCOMMON
+  // 14...UNCOMMON
+    // Uncommon = 28% chance.
+
+  // 15...RARE
+  // 16...RARE
+  // 17...RARE
+    // Rare = 17% chance.
+
+  // 18...LEGENDARY
+    // Legendary = 5% chance.
+
+
+
+
+*/
+  var num = Math.floor(Math.random() * 9)
+  function rollMonsterRarity() {
+
+    num = Math.floor(Math.random() * 9)
+
+      if ((num==0) || (num==1)) {
+      //show hidden div or document.write (50% probability)
+      } else if (num==2) {
+      //show hidden div or document.write (25% probability)
+      } else {
+      //show hidden div or document.write (25% probability)
+    }
+
+  }
+
+
+
+
+  // Function to roll final stats for monster using generated class, type, and rarity as arguments
+  function rollStatsForMonster(monsterClass, monsterType, monsterRarity) {
     reRollRandomStats();
 
 
