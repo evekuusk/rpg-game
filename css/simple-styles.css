@@ -16,15 +16,6 @@ body {
   margin-bottom: 30px;
 }
 
-div span {
-  font-size: 1.2em;
-}
-
-#backToHome:hover {
-  background-color: #539494;
-  color: #fff;
-}
-
 .buttonsBox {
   width: 100%;
   text-align: center;
@@ -33,30 +24,16 @@ div span {
 
 .pure-button {
   margin: 0 auto;
-  width: 30%;
-}
-
-#fightButton, #fleeButton {
-  display: inline-block;
-}
-
-#tryAgainButton {
-  width: 50%;
-}
-
-#resultsBox {
-  text-align: center;
-}
-
-#resultsArea, #roundsCountBox {
-  width: 80%;
-  text-align: center;
-  margin: 10px auto;
-  padding: 10px;
-  border: 1px solid grey;
-}
-
-#roundsCountBox {
   width: 40%;
-  margin-top: 1.75rem;
+}
+
+#resultsArea {
+  margin: 3rem;
+  padding: 2rem;
+  border: 1px solid grey;
+  text-align: left;
+}
+
+h2 {
+  text-align: center;
 }

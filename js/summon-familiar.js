@@ -321,3 +321,21 @@
       undead = false
       return bossFamiliar
     }
+
+
+
+  // *** --- BUTTONS -- *** //
+
+    // summon familiar button
+    $("#summonFamiliarButton").on("click", function(){
+      summonFamiliar();
+      $("#heroFamiliarDescription").text("You have summoned a new " + description.toUpperCase() + " familiar!");
+      $("#heroFamiliarStats").text("STRENGTH: " + strength + ", " + "HEALTH: " + health + ", " + "STAMINA: " + stamina + ", " + "MAGIC: " + magic + ".")
+    });
+
+    // summon enemy familiar button
+    $("#summonEnemyFamiliarButton").on("click", function(){
+      summonBossFamiliar();
+      $("#bossFamiliarDescription").text("Your enemy has summoned a new " + description.toUpperCase() + " familiar!");
+      $("#bossFamiliarStats").text("BOSS STRENGTH: " + strength + ", " + "BOSS HEALTH: " + health + ", " + "BOSS STAMINA: " + stamina + ", " + "BOSS MAGIC: " + magic + ".")
+    });
