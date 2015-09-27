@@ -21,10 +21,10 @@
 
     $("#heroDamageStats").html("<li class='listTitle'>DAMAGE</li><li>" + (heroFamiliar.strength + 1) + " - " + (heroFamiliar.strength + 10) + "</li>");
 
-    if ((heroFamiliar.magic <= -1) || (heroFamiliar.magic == 0)) {
+    if (heroFamiliar.magic <= 0) {
       $("#heroMagicDamageStats").html("<li class='listTitle'>MAGIC DAMAGE</li><li>0</li>");
     } else {
-      $("#heroMagicDamageStats").html("<li class='listTitle'>MAGIC DAMAGE</li><li>" + (heroFamiliar.strength + (heroFamiliar.magic * 1)) + " - " + (heroFamiliar.strength + (heroFamiliar.magic * 10)) + "</li");
+      $("#heroMagicDamageStats").html("<li class='listTitle'>MAGIC DAMAGE</li><li>" + (heroFamiliar.strength * heroFamiliar.magic) + "</li");
     }
 
 
@@ -36,10 +36,10 @@
 
     $("#enemyDamageStats").html("<li class='listTitle'>DAMAGE</li><li>" + (enemyFamiliar.strength + 1) + " - " + (enemyFamiliar.strength + 10) + "</li>");
 
-    if ((enemyFamiliar.magic <= -1) || (enemyFamiliar.magic == 0)) {
+    if (enemyFamiliar.magic <= 0) {
       $("#enemyMagicDamageStats").html("<li class='listTitle'>MAGIC DAMAGE</li><li>0</li>");
     } else {
-    $("#enemyMagicDamageStats").html("<li class='listTitle'>MAGIC DAMAGE</li><li>" + (enemyFamiliar.strength + (enemyFamiliar.magic * 1)) + " - " + (enemyFamiliar.strength + (enemyFamiliar.magic * 10)) + "</li");
+    $("#enemyMagicDamageStats").html("<li class='listTitle'>MAGIC DAMAGE</li><li>" + (enemyFamiliar.strength * enemyFamiliar.magic) + "</li");
     }
 
     $("#resultsArea").show();
@@ -47,7 +47,7 @@
     $("#summonFamiliarButton").show();
     $("#startFightButton").show();
 
-    $("#heroCounter").text("Number of familiar re-rolls used: " + rerollCount + "/3");
+    $("#heroCounter").text("Number of re-rolls used: " + rerollCount + "/3");
   });
 
 
@@ -61,18 +61,17 @@
 
     $("#heroDamageStats").html("<li class='listTitle'>DAMAGE</li><li>" + (heroFamiliar.strength + 1) + " - " + (heroFamiliar.strength + 10) + "</li>");
 
-    if ((heroFamiliar.magic <= -1) || (heroFamiliar.magic == 0)) {
+    if (heroFamiliar.magic <= 0) {
       $("#heroMagicDamageStats").html("<li class='listTitle'>MAGIC DAMAGE</li><li>0</li>");
     } else {
-      $("#heroMagicDamageStats").html("<li class='listTitle'>MAGIC DAMAGE</li><li>" + (heroFamiliar.strength + (heroFamiliar.magic * 1)) + " - " + (heroFamiliar.strength + (heroFamiliar.magic * 10)) + "</li");
+      $("#heroMagicDamageStats").html("<li class='listTitle'>MAGIC DAMAGE</li><li>" + (heroFamiliar.strength * heroFamiliar.magic) + "</li");
     }
 
     rerollCount = rerollCount + 1
-    $("#heroCounter").text("Number of familiar re-rolls used: " + rerollCount + "/3");
+    $("#heroCounter").text("Number of re-rolls used: " + rerollCount + "/3");
     $("#resultsArea").show();
 
     if (rerollCount == 3) {
       $("#summonFamiliarButton").hide();
-      $("#heroCounter").hide();
     }
   });
