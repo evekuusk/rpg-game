@@ -3,6 +3,7 @@ body {
   text-align: center;
   padding-bottom: 3rem;
 }
+
 .functionBox {
   display: inline-block;
   text-align: left;
@@ -14,6 +15,22 @@ body {
   padding: 20px;
   margin-top: 20px;
   margin-bottom: 30px;
+}
+
+#heroBox {
+  width: 38%;
+  margin: 1rem;
+  padding: 1rem;
+  padding-left: 0;
+  float: left;
+}
+
+#enemyBox {
+  width: 38%;
+  padding: 1rem;
+  padding-right: 0;
+  margin: 1rem;
+  float: right;
 }
 
 .buttonsBox {
@@ -28,12 +45,19 @@ body {
 }
 
 #resultsArea {
+  font-size: 0.8rem;
   margin: 3rem;
   padding: 2rem;
   border: 1px solid grey;
   text-align: left;
+  height: 20rem;
 }
 
 h2 {
   text-align: center;
+}
+
+#startFightButton {
+  margin-top: 2rem;
+  clear: both;
 }
