@@ -50,7 +50,7 @@ body {
   padding: 2rem;
   border: 1px solid grey;
   text-align: left;
-  height: 20rem;
+  height: 23rem;
 }
 
 h2 {
@@ -60,4 +60,18 @@ h2 {
 #startFightButton {
   margin-top: 2rem;
   clear: both;
+}
+
+.listTitle {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.familiarDescription {
+  font-size: 1.1rem;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
 }

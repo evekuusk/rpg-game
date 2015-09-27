@@ -7,13 +7,8 @@
     var enemyAttackDamage
     var enemyMagicAttackDamage
 
-
-    var defend
-    var magicDefend
-
-    var specialAttack
-
-    var flee
+    var evade = false
+    var enemyEvade = false
 
     var heroStartHealth
     var enemyStartHealth

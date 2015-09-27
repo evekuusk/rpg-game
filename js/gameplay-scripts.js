@@ -2,8 +2,7 @@
 
   // *** ---  GLOBAL VARIABLES --- *** //
     // REROLL COUNT
-    var heroRerollCount = 0
-    var enemyRerollCount = 0
+    var rerollCount = 0
 
   // *** --- HIDDEN AT START -- *** //
   $("#resultsArea").hide();
@@ -16,33 +15,39 @@
   $("#summonButton").on("click", function(){
     // summon hero
     summonFamiliar();
-    $("#heroFamiliarDescription").text("You have summoned a new " + description.toUpperCase() + " familiar!");
+    $("#heroFamiliarDescription").text(heroFamiliar.description.toUpperCase());
 
-    $("#heroFamiliarStats").text("STRENGTH: " + strength + ", " + "HEALTH: " + health + ", " + "STAMINA: " + stamina + ", " + "MAGIC: " + magic + ".");
+    $("#heroFamiliarStats").html("<li class='listTitle'>STATS</li><li>STRENGTH: &nbsp;" + strength + "</li><li>" + "HEALTH: &nbsp;" + health + "</li><li>" + "STAMINA: &nbsp;" + stamina + "</li><li>" + "MAGIC: &nbsp;" + magic + "</li><li>" + "SPEED: &nbsp;" + speed + "</li>");
 
-    $("#heroDamageStats").text(heroFamiliar.description.toUpperCase() + " will do damage between " + (heroFamiliar.strength + 1) + " and " + (heroFamiliar.strength + 10) + ".");
+    $("#heroDamageStats").html("<li class='listTitle'>DAMAGE</li><li>" + (heroFamiliar.strength + 1) + " - " + (heroFamiliar.strength + 10) + "</li>");
 
-    $("#heroMagicDamageStats").text(heroFamiliar.description.toUpperCase() + " will do magic damage between " + ( heroFamiliar.strength + (heroFamiliar.magic * 1)) + " and " + (heroFamiliar.strength + (heroFamiliar.magic * 10 )) + ".");
+    if ((heroFamiliar.magic <= -1) || (heroFamiliar.magic == 0)) {
+      $("#heroMagicDamageStats").html("<li class='listTitle'>MAGIC DAMAGE</li><li>0</li>");
+    } else {
+      $("#heroMagicDamageStats").html("<li class='listTitle'>MAGIC DAMAGE</li><li>" + (heroFamiliar.strength + (heroFamiliar.magic * 1)) + " - " + (heroFamiliar.strength + (heroFamiliar.magic * 10)) + "</li");
+    }
 
 
     // summon enemy
     summonEnemyFamiliar();
-    $("#enemyFamiliarDescription").text("Your enemy has summoned a new " + description.toUpperCase() + " familiar!");
+    $("#enemyFamiliarDescription").text(enemyFamiliar.description.toUpperCase());
 
-    $("#enemyFamiliarStats").text("ENEMY STRENGTH: " + strength + ", " + "ENEMY HEALTH: " + health + ", " + "ENEMY STAMINA: " + stamina + ", " + "ENEMY MAGIC: " + magic + ".");
+    $("#enemyFamiliarStats").html("<li class='listTitle'>STATS</li><li>STRENGTH: &nbsp;" + strength + "</li><li>" + "HEALTH: &nbsp;" + health + "</li><li>" + "STAMINA: &nbsp;" + stamina + "</li><li>" + "MAGIC: &nbsp;" + magic + "</li><li>" + "SPEED: &nbsp;" + speed + "</li>");
 
-    $("#enemyDamageStats").text("Enemy " + enemyFamiliar.description.toUpperCase() + " will do damage between " + (enemyFamiliar.strength + 1) + " and " + (enemyFamiliar.strength + 10) + ".");
+    $("#enemyDamageStats").html("<li class='listTitle'>DAMAGE</li><li>" + (enemyFamiliar.strength + 1) + " - " + (enemyFamiliar.strength + 10) + "</li>");
 
-    $("#enemyMagicDamageStats").text("Enemy " + enemyFamiliar.description.toUpperCase() + " will do magic damage between " + ( enemyFamiliar.strength + (enemyFamiliar.magic * 1)) + " and " + (enemyFamiliar.strength + (enemyFamiliar.magic * 10 )) + ".");
+    if ((enemyFamiliar.magic <= -1) || (enemyFamiliar.magic == 0)) {
+      $("#enemyMagicDamageStats").html("<li class='listTitle'>MAGIC DAMAGE</li><li>0</li>");
+    } else {
+    $("#enemyMagicDamageStats").html("<li class='listTitle'>MAGIC DAMAGE</li><li>" + (enemyFamiliar.strength + (enemyFamiliar.magic * 1)) + " - " + (enemyFamiliar.strength + (enemyFamiliar.magic * 10)) + "</li");
+    }
 
     $("#resultsArea").show();
     $("#summonButton").hide();
     $("#summonFamiliarButton").show();
-    $("#summonEnemyFamiliarButton").show();
     $("#startFightButton").show();
 
-    $("#heroCounter").text("Number of familiar re-rolls used: " + heroRerollCount + "/3");
-    $("#enemyCounter").text("Number of enemy familiar re-rolls used: " + enemyRerollCount + "/3");
+    $("#heroCounter").text("Number of familiar re-rolls used: " + rerollCount + "/3");
   });
 
 
@@ -50,41 +55,24 @@
   // *** --- REROLL FAMILIAR BUTTON -- *** //
   $("#summonFamiliarButton").on("click", function(){
     summonFamiliar();
-    $("#heroFamiliarDescription").text("You have summoned a new " + description.toUpperCase() + " familiar!");
+    $("#heroFamiliarDescription").text(heroFamiliar.description.toUpperCase());
 
-    $("#heroFamiliarStats").text("STRENGTH: " + strength + ", " + "HEALTH: " + health + ", " + "STAMINA: " + stamina + ", " + "MAGIC: " + magic + ".");
+    $("#heroFamiliarStats").html("<li class='listTitle'>STATS</li><li>STRENGTH: &nbsp;" + strength + "</li><li>" + "HEALTH: &nbsp;" + health + "</li><li>" + "STAMINA: &nbsp;" + stamina + "</li><li>" + "MAGIC: &nbsp;" + magic + "</li><li>" + "SPEED: &nbsp;" + speed + "</li>");
 
-    $("#heroDamageStats").text(heroFamiliar.description.toUpperCase() + " will do damage between " + (heroFamiliar.strength + 1) + " and " + (heroFamiliar.strength + 10) + ".");
+    $("#heroDamageStats").html("<li class='listTitle'>DAMAGE</li><li>" + (heroFamiliar.strength + 1) + " - " + (heroFamiliar.strength + 10) + "</li>");
 
-    $("#heroMagicDamageStats").text(heroFamiliar.description.toUpperCase() + " will do magic damage between " + ( heroFamiliar.strength + (heroFamiliar.magic * 1)) + " and " + (heroFamiliar.strength + (heroFamiliar.magic * 10 )) + ".");
+    if ((heroFamiliar.magic <= -1) || (heroFamiliar.magic == 0)) {
+      $("#heroMagicDamageStats").html("<li class='listTitle'>MAGIC DAMAGE</li><li>0</li>");
+    } else {
+      $("#heroMagicDamageStats").html("<li class='listTitle'>MAGIC DAMAGE</li><li>" + (heroFamiliar.strength + (heroFamiliar.magic * 1)) + " - " + (heroFamiliar.strength + (heroFamiliar.magic * 10)) + "</li");
+    }
 
-    heroRerollCount = heroRerollCount + 1
-    $("#heroCounter").text("Number of familiar re-rolls used: " + heroRerollCount + "/3");
+    rerollCount = rerollCount + 1
+    $("#heroCounter").text("Number of familiar re-rolls used: " + rerollCount + "/3");
     $("#resultsArea").show();
 
-    if (heroRerollCount == 3) {
+    if (rerollCount == 3) {
       $("#summonFamiliarButton").hide();
       $("#heroCounter").hide();
-    }
-  });
-
-  // *** --- REROLL ENEMY FAMILIAR BUTTON -- *** //
-  $("#summonEnemyFamiliarButton").on("click", function(){
-    summonEnemyFamiliar();
-    $("#enemyFamiliarDescription").text("Your enemy has summoned a new " + description.toUpperCase() + " familiar!");
-
-    $("#enemyFamiliarStats").text("ENEMY STRENGTH: " + strength + ", " + "ENEMY HEALTH: " + health + ", " + "ENEMY STAMINA: " + stamina + ", " + "ENEMY MAGIC: " + magic + ".");
-
-    $("#enemyDamageStats").text("Enemy " + enemyFamiliar.description.toUpperCase() + " will do damage between " + (enemyFamiliar.strength + 1) + " and " + (enemyFamiliar.strength + 10) + ".");
-
-    $("#enemyMagicDamageStats").text("Enemy " + enemyFamiliar.description.toUpperCase() + " will do magic damage between " + ( enemyFamiliar.strength + (enemyFamiliar.magic * 1)) + " and " + (enemyFamiliar.strength + (enemyFamiliar.magic * 10 )) + ".");
-
-    enemyRerollCount = enemyRerollCount + 1
-    $("#enemyCounter").text("Number of enemy familiar re-rolls used: " + enemyRerollCount + "/3");
-    $("#resultsArea").show();
-
-    if (enemyRerollCount == 3) {
-      $("#summonEnemyFamiliarButton").hide();
-      $("#enemyCounter").hide();
     }
   });

@@ -16,35 +16,33 @@
 
     <div class="functionBox">
       <h1>RPG GAME</h1>
-      <p>Summon a familiar, summon your enemy's familiar.  You have 3 chances to summon each.</p>
+      <p>Summon a familiar to fight your enemy's familiar.  You have 3 chances to re-roll.</p>
 
       <div class="buttonsBox">
         <div class="pure-button" id="summonButton">SUMMON</div>
 
         <div class="pure-button" id="summonFamiliarButton">NEW FAMILIAR</div>
-        <div class="pure-button" id="summonEnemyFamiliarButton">NEW ENEMY FAMILIAR</div>
         <div id="rollCounter">
           <p id="heroCounter"></p>
-          <p id="enemyCounter"></p>
         </div>
 
       </div>
 
       <div id="resultsArea">
         <div id="heroBox">
-          <h3>YOUR FAMILIAR</h3>
-          <p id="heroFamiliarDescription"></p>
-          <p id="heroFamiliarStats"></p>
-          <p id="heroDamageStats"></p>
-          <p id="heroMagicDamageStats"></p>
+          <p>YOUR FAMILIAR</p>
+          <h4 id="heroFamiliarDescription" class="familiarDescription"></h4>
+          <ul id="heroFamiliarStats"></ul>
+          <ul id="heroDamageStats"></ul>
+          <ul id="heroMagicDamageStats"></ul>
         </div>
 
         <div id="enemyBox">
-          <h3>ENEMY FAMILIAR</h3>
-          <p id="enemyFamiliarDescription"></p>
-          <p id="enemyFamiliarStats"></p>
-          <p id="enemyDamageStats"></p>
-          <p id="enemyMagicDamageStats"></p>
+          <p>ENEMY FAMILIAR</p>
+          <h4 id="enemyFamiliarDescription" class="familiarDescription"></h4>
+          <ul id="enemyFamiliarStats"></ul>
+          <ul id="enemyDamageStats"></ul>
+          <ul id="enemyMagicDamageStats"></ul>
         </div>
 
       </div>
