@@ -144,3 +144,7 @@
       $("#specialAttackButton").hide();
       $("#fightInstructions").hide();
     })
+
+    $("#againButton").on("click", function() {
+      location.reload();
+    });

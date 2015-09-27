@@ -56,7 +56,7 @@ body {
 }
 
 #battleBox {
-  height: 30rem;
+  height: 20rem;
 }
 
 h2 {
@@ -64,7 +64,8 @@ h2 {
 }
 
 #startFightButton {
-  margin-top: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
   clear: both;
 }
 
