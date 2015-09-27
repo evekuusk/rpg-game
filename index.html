@@ -20,7 +20,7 @@
 
       <div class="buttonsBox">
         <div class="pure-button" id="summonButton">SUMMON</div>
-
+        <div class="pure-button" id="attackButton">ATTACK</div><div class="pure-button" id="magicAttackButton">MAGIC ATTACK</div>
         <div class="pure-button" id="summonFamiliarButton">NEW FAMILIAR</div>
         <div id="rollCounter">
           <p id="heroCounter"></p>
@@ -28,9 +28,33 @@
 
       </div>
 
+      <div id="battleBox">
+        <h2 id="battleTitle"></h2>
+        <p id="fightUpdate"></p>
+        <p id="fightEvasionOrAttack"></p>
+
+        <div id="heroFightStats">
+          <h3 id="heroFightName"></h3>
+          <ul id="heroHealthStat"></ul>
+          <ul id="heroStaminaStat"></ul>
+          <ul id="heroMagicStat"></ul>
+
+        </div>
+
+        <div id="enemyFightStats">
+          <h3 id="enemyFightName"></h3>
+          <ul id="enemyHealthStat"></ul>
+          <ul id="enemyStaminaStat"></ul>
+          <ul id="enemyMagicStat"></ul>
+
+        </div>
+
+
+      </div>
+
       <div id="resultsArea">
         <div id="heroBox">
-          <p>YOUR FAMILIAR</p>
+          <p class="heroName">YOUR FAMILIAR</p>
           <h4 id="heroFamiliarDescription" class="familiarDescription"></h4>
           <ul id="heroFamiliarStats"></ul>
           <ul id="heroDamageStats"></ul>
@@ -38,7 +62,7 @@
         </div>
 
         <div id="enemyBox">
-          <p>ENEMY FAMILIAR</p>
+          <p class="enemyName">ENEMY FAMILIAR</p>
           <h4 id="enemyFamiliarDescription" class="familiarDescription"></h4>
           <ul id="enemyFamiliarStats"></ul>
           <ul id="enemyDamageStats"></ul>
@@ -46,6 +70,8 @@
         </div>
 
       </div>
+
+
 
       <div class="buttonsBox"><div class="pure-button" id="startFightButton">FIGHT</div></div>
 

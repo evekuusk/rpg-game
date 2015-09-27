@@ -9,6 +9,9 @@
   $("#summonFamiliarButton").hide();
   $("#summonEnemyFamiliarButton").hide();
   $("#startFightButton").hide();
+  $("#attackButton").hide();
+  $("#magicAttackButton").hide();
+  $("#battleBox").hide();
 
 
   // *** --- INITIAL SUMMON BUTTON -- *** //
@@ -75,3 +78,32 @@
       $("#summonFamiliarButton").hide();
     }
   });
+
+
+
+  // *** --- START FIGHT BUTTON -- *** //
+
+  $("#startFightButton").on("click", function() {
+    $("#resultsArea").hide();
+    $("#summonFamiliarButton").hide();
+    $("#heroCounter").hide();
+    $("#startFightButton").hide();
+
+    $("#attackButton").show();
+    $("#magicAttackButton").show();
+    $("#battleBox").show();
+
+    $("#battleTitle").html("<span class='heroName'>" + heroFamiliar.description.toUpperCase() + "</span>" + " vs " + "<span class='enemyName'>" + enemyFamiliar.description.toUpperCase() + "</span>");
+
+    $("#heroFightName").text(heroFamiliar.description.toUpperCase());
+    $("#enemyFightName").text("ENEMY " + enemyFamiliar.description.toUpperCase());
+
+    if (heroFamiliar.speed >= enemyFamiliar.speed) {
+      $("#fightUpdate").html("<span class='heroName'>" + heroFamiliar.description.toUpperCase() + "</span>" + " has a higher speed stat than <span class='enemyName'>" + enemyFamiliar.description.toUpperCase() + "</span>!  &nbsp; You have attacked first!");
+      heroAttack();
+    } else {
+      $("#fightUpdate").html("Enemy <span class='enemyName'>" + enemyFamiliar.description.toUpperCase() + "</span>" + " has a higher speed stat than <span class='heroName'>" + heroFamiliar.description.toUpperCase() + "</span>! &nbsp; Enemy has attacked first!");
+    }
+
+
+  })

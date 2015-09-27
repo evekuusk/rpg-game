@@ -17,7 +17,7 @@ body {
   margin-bottom: 30px;
 }
 
-#heroBox {
+#heroBox, #heroFightStats {
   width: 38%;
   margin: 1rem;
   padding: 1rem;
@@ -25,13 +25,15 @@ body {
   float: left;
 }
 
-#enemyBox {
+#enemyBox, #enemyFightStats {
   width: 38%;
   padding: 1rem;
   padding-right: 0;
   margin: 1rem;
   float: right;
 }
+
+
 
 .buttonsBox {
   width: 100%;
@@ -44,13 +46,17 @@ body {
   width: 40%;
 }
 
-#resultsArea {
+#resultsArea, #battleBox {
   font-size: 0.8rem;
   margin: 3rem;
   padding: 2rem;
   border: 1px solid grey;
   text-align: left;
   height: 25rem;
+}
+
+#battleBox {
+  height: 15rem;
 }
 
 h2 {
@@ -74,4 +80,16 @@ h2 {
 ul {
   list-style: none;
   padding-left: 0;
+}
+
+.heroName {
+  color: blue;
+}
+
+.enemyName {
+  color: red;
+}
+
+#fightButton, #evadeButton {
+  margin: 0 1rem;
 }
