@@ -14,8 +14,6 @@
     var enemyEvade = false
     var evadeChance
 
-    // var criticalHit = false
-    // var enemyCriticalHit = false
     var criticalChance
 
 
@@ -116,15 +114,16 @@
 
 
       } else  if (enemyEvade === false) { // if attack hits...
-        enemyFamiliar.health = enemyFamiliar.health - attackDamage
         rollCriticalChance();
+        enemyFamiliar.health = enemyFamiliar.health - attackDamage
 
         if (enemyFamiliar.health <= 0) {
-          console.log("Enemy was hit!  Your familiar did " + attackDamage + " attack damage!  YOU WIN!  Enemy familiar is dead!");
+          $("#battleButtons").hide();
 
-          $("#enemyHealthStat").html("<li class='listTitle'>HEALTH</li><li>" + enemyFamiliar.health + " / " + enemyFamiliar.maxhealth);
+          $("#battleBox").hide();
+          $("#battleEndBox").show();
+          $("#victory").show();
 
-          $("#fightEvasionOrAttack").html("Rolled " + evadeChance + " to evade.  Because enemy speed is " + enemyFamiliar.speed + ", acceptable range for evasion is " + (enemyFamiliar.speed - 2) + " - " + (enemyFamiliar.speed + 2) +"! &nbsp; Enemy was hit!  Your familiar did " + attackDamage + " attack damage!  &nbsp; YOU WIN!  &nbsp; Enemy familiar is dead!");
         } else {
           console.log("Enemy was hit!  Your familiar did " + attackDamage + " attack damage!");
 
@@ -134,21 +133,38 @@
         }
       }
 
-      if (enemyFamiliar.health <= 0) {
-        enemyFamiliar.health = 0
-        console.log("Enemy health is " + enemyFamiliar.health + "/" + enemyFamiliar.maxhealth + ". ENEMY IS DEAD, STOP BEATING THEIR CORPSE!  YOU MONSTER!");
+    } // end of heroAttack()
 
-        $("#enemyHealthStat").html("<li class='listTitle'>HEALTH</li><li>" + enemyFamiliar.health + " / " + enemyFamiliar.maxhealth);
 
-        $("#fightEvasionOrAttack").html("Enemy is dead, you win!");
+
+    function specialAttack() {
+      if (heroFamiliar.class == "pest") {
+
+      } else if (heroFamiliar.class == "creature") {
+
+      } else if ((heroFamiliar.class == "demon") || (heroFamiliar.class == "elder god")) {
+
       }
-    } end of heroAttack()
-
+    }
 
 
 
 
     // enemy attacks
+
+    function rollForEnemySpecialAttack() {
+
+    }
+
+
+    function enemySpecialAttack() {
+
+
+    } // end of enemySpecialAttack()
+
+
+
+
     function enemyAttack() {
       enemyAttackDamage = enemyFamiliar.strength + (Math.floor(Math.random() * 10) + 1)
 
@@ -164,15 +180,16 @@
 
 
       } else  if (evade === false) { // if attack hits...
-        heroFamiliar.health = heroFamiliar.health - enemyAttackDamage
         rollEnemyCriticalChance();
+        heroFamiliar.health = heroFamiliar.health - enemyAttackDamage
 
         if (heroFamiliar.health <= 0) {
-          console.log("Your familiar was hit!  Enemy familiar did " + attackDamage + " attack damage!  YOU LOSE!  Your familiar is dead!");
+          $("#battleButtons").hide();
 
-          $("#heroHealthStat").html("<li class='listTitle'>HEALTH</li><li>" + heroFamiliar.health + " / " + heroFamiliar.maxhealth);
+          $("#battleBox").hide();
+          $("#battleEndBox").show();
+          $("#defeat").show();
 
-          $("#fightEvasionOrAttack").html("Rolled " + evadeChance + " to evade.  Because speed is " + heroFamiliar.speed + ", acceptable range for evasion is " + (heroFamiliar.speed - 2) + " - " + (heroFamiliar.speed + 2) +"! &nbsp; Your familiar was hit!  Enemy familiar did " + enemyAttackDamage + " attack damage!  &nbsp; YOU LOSE!  &nbsp; Your familiar is dead!");
         } else {
           console.log("Your familiar was hit!  Enemy familiar did " + enemyAttackDamage + " attack damage!");
 
@@ -180,15 +197,6 @@
 
           $("#fightEvasionOrAttack").html("Your familiar was hit!  &nbsp; Enemy familiar did " + enemyAttackDamage + " attack damage!");
         }
-      }
-
-      if (heroFamiliar.health <= 0) {
-        heroFamiliar.health = 0
-        console.log("Your familiar's health is " + heroFamiliar.health + " / " + heroFamiliar.maxhealth + ". YOU ARE DEAD!");
-
-        $("#enemyHealthStat").html("<li class='listTitle'>HEALTH</li><li>" + heroFamiliar.health + " / " + heroFamiliar.maxhealth);
-
-        $("#fightEvasionOrAttack").html("Your familiar is dead, you lose!");
       }
 
     } // end of enemyAttack()

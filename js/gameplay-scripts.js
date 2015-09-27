@@ -13,6 +13,9 @@
   $("#specialAttackButton").hide();
   $("#nextRoundButton").hide();
   $("#battleBox").hide();
+  $("#battleEndBox").hide();
+  $("#victory").hide();
+  $("#defeat").hide();
 
 
   // *** --- INITIAL SUMMON BUTTON -- *** //
