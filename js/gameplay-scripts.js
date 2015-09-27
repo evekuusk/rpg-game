@@ -16,6 +16,7 @@
   $("#battleEndBox").hide();
   $("#victory").hide();
   $("#defeat").hide();
+  $("#fightInstructions").hide();
 
 
   // *** --- INITIAL SUMMON BUTTON -- *** //
@@ -93,6 +94,9 @@
     $("#heroCounter").hide();
     $("#startFightButton").hide();
 
+    $("#summonInstructions").hide();
+    $("#fightInstructions").show();
+
     $("#attackButton").show();
     $("#specialAttackButton").show();
     $("#battleBox").show();
@@ -120,15 +124,23 @@
     $("#attackButton").on("click", function() {
       heroAttack();
       $("#fightUpdate").html("Your familiar has attacked the enemy familiar!");
-      $("#attackButton").hide();
-      $("#specialAttackButton").hide();
+      $("#specialEnemyUpdate").text("");
+      $("#specialUpdate").text("");
+      $("#attackButtons").hide();
       $("#nextRoundButton").show();
     })
 
     $("#nextRoundButton").on("click", function() {
-      enemyAttack();
+      enemyTurn();
       $("#fightUpdate").html("Enemy familiar has attacked your familiar!");
-      $("#attackButton").show();
-      $("#specialAttackButton").show();
+      $("#specialEnemyUpdate").text("");
+      $("#specialUpdate").text("");
+      $("#attackButtons").show();
       $("#nextRoundButton").hide();
+    })
+
+    $("#specialAttackButton").on("click", function() {
+      specialAttack();
+      $("#specialAttackButton").hide();
+      $("#fightInstructions").hide();
     })

@@ -16,11 +16,16 @@
 
     <div class="functionBox">
       <h1>RPG GAME</h1>
-      <!-- <p>Summon a familiar to fight your enemy's familiar.  You have 3 chances to re-roll.</p> -->
+      <p id="summonInstructions">Summon a familiar to fight your enemy's familiar.  You have 3 chances to re-roll.</p>
+      <p id="fightInstructions">You may use a special attack only once! &nbsp; For magical creatures, this is a magic damage attack.  &nbsp; For pests, this is a 50% chance to poison the opponent (-10 stamina).  &nbsp; For creatures, this is a 50% chance to scare the opponent (-5 strength).</p>
 
       <div class="buttonsBox" id="battleButtons">
         <div class="pure-button" id="summonButton">SUMMON</div>
+        
+        <div id="attackButtons">
         <div class="pure-button" id="attackButton">ATTACK</div><div class="pure-button" id="specialAttackButton">SPECIAL ATTACK</div>
+        </div>
+
         <div class="pure-button" id="nextRoundButton">NEXT ROUND</div>
         <div class="pure-button" id="summonFamiliarButton">NEW FAMILIAR</div>
         <div id="rollCounter">
@@ -32,6 +37,8 @@
       <div id="battleBox">
         <h2 id="battleTitle"></h2>
         <p id="fightUpdate"></p>
+        <p id="specialUpdate"></p>
+        <p id="specialEnemyUpdate"></p>
         <p id="fightCriticalHit"></p>
         <p id="fightEvasionOrAttack"></p>
 
