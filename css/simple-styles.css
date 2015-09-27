@@ -56,7 +56,7 @@ body {
 }
 
 #battleBox {
-  height: 15rem;
+  height: 30rem;
 }
 
 h2 {
@@ -90,6 +90,6 @@ ul {
   color: red;
 }
 
-#fightButton, #evadeButton {
+#attackButton, #magicAttackButton {
   margin: 0 1rem;
 }

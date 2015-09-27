@@ -102,7 +102,7 @@
         strength = strength + 15
         health = health + 50
         stamina = stamina + 8
-        magic = magic + (Math.floor(Math.random() * 2))
+        magic = magic + 1
         speed = speed - 5
 
       } else if (rarity == "rare") {
@@ -110,7 +110,7 @@
         strength = strength + 8
         health = health + 25
         stamina = stamina + 5
-        magic = magic + (Math.floor(Math.random() * 1))
+        magic = magic + Math.round(Math.random())
         speed = speed + 2
 
       } else if (rarity == "uncommon") {
@@ -118,7 +118,6 @@
         strength = strength + 3
         health = health + 15
         stamina = stamina + 2
-        magic = magic + (Math.floor(Math.random() * 1))
         speed = speed + 1
 
       }  else {
@@ -218,16 +217,12 @@
     function rollBaseStats() {
       // Strength: random number 5 - 10
       strengthStatBase = Math.floor(Math.random() * 5) + 5
-
       // Health: random number 25 - 50
       healthStatBase = Math.floor(Math.random() * 50) + 25
-
       // Stamina: random number 5 - 10
       staminaStatBase = Math.floor(Math.random() * 10) + 5
-
       // Magic: random number 0 - 3
       magicStatBase = Math.floor(Math.random() * 4)
-
       // Speed: random number 10 - 25
       speedStatBase = Math.floor(Math.random() * 25) + 10
     }
@@ -244,7 +239,7 @@
       if (monsterClass == "pest") {
         strength = strengthStatBase
         health = healthStatBase + 50
-        stamina = staminaStatBase - 1
+        stamina = staminaStatBase + 15
         magic = magicStatBase + Math.round(Math.random())
         speed = speedStatBase + 10
       } // end of IF PEST conditional
@@ -252,7 +247,7 @@
       if (monsterClass == "creature") {
         strength = strengthStatBase + 5
         health = healthStatBase + 75
-        stamina = staminaStatBase + 4
+        stamina = staminaStatBase + 10
         magic = magicStatBase + Math.round(Math.random())
         speed = speedStatBase + 5
       } // end of IF CREATURE conditional
@@ -260,16 +255,16 @@
       if (monsterClass == "demon") {
         strength = strengthStatBase + 10
         health = healthStatBase + 150
-        stamina = staminaStatBase + 4
-        magic = magicStatBase + (Math.floor(Math.random() * 3)) + 1
+        stamina = staminaStatBase + 2
+        magic = magicStatBase + (Math.round(Math.random()) + 1) // adds 1 or 2 if demon
         speed = speedStatBase + 4
       } // end of IF DEMON conditional
 
       if (monsterClass == "elder god") {
         strength = strengthStatBase + 30
         health = healthStatBase + 300
-        stamina = staminaStatBase + 20
-        magic = magicStatBase + (Math.floor(Math.random() * 5)) + 1
+        stamina = staminaStatBase + 1
+        magic = magicStatBase + (Math.round(Math.random()) + 2) // adds 2 or 3 if elder god
         speed = speedStatBase + 2
       } // end of IF ELDER GOD conditional
 
@@ -283,8 +278,7 @@
       // adjust stats
       strength = strength + 3
       health = health + 20
-      stamina = stamina + 5
-      magic = magic + 3
+      stamina = stamina + 2
       speed = speed + 1
     }
 
@@ -298,8 +292,8 @@
       // reset base stats for elder god
       strength = strengthStatBase + 30
       health = healthStatBase + 300
-      stamina = staminaStatBase + 20
-      magic = magicStatBase + (Math.floor(Math.random() * 5)) + 1
+      stamina = staminaStatBase + 1
+      magic = magicStatBase + Math.round(Math.random()) // adds 0 or 1
       speed = speedStatBase + 2
 
       // adjusts stats based on rarity
@@ -308,8 +302,8 @@
       // adjust stats for boss level
       strength = strength + 10
       health = health + 200
-      stamina = stamina + 50
-      magic = magic + 10
+      stamina = stamina + 3
+      magic = magic + 1
       speed = speed + 5
     }
 

@@ -16,11 +16,12 @@
 
     <div class="functionBox">
       <h1>RPG GAME</h1>
-      <p>Summon a familiar to fight your enemy's familiar.  You have 3 chances to re-roll.</p>
+      <!-- <p>Summon a familiar to fight your enemy's familiar.  You have 3 chances to re-roll.</p> -->
 
       <div class="buttonsBox">
         <div class="pure-button" id="summonButton">SUMMON</div>
-        <div class="pure-button" id="attackButton">ATTACK</div><div class="pure-button" id="magicAttackButton">MAGIC ATTACK</div>
+        <div class="pure-button" id="attackButton">ATTACK</div><div class="pure-button" id="specialAttackButton">SPECIAL ATTACK</div>
+        <div class="pure-button" id="nextRoundButton">NEXT ROUND</div>
         <div class="pure-button" id="summonFamiliarButton">NEW FAMILIAR</div>
         <div id="rollCounter">
           <p id="heroCounter"></p>
@@ -31,12 +32,12 @@
       <div id="battleBox">
         <h2 id="battleTitle"></h2>
         <p id="fightUpdate"></p>
+        <p id="fightCriticalHit"></p>
         <p id="fightEvasionOrAttack"></p>
 
         <div id="heroFightStats">
           <h3 id="heroFightName"></h3>
           <ul id="heroHealthStat"></ul>
-          <ul id="heroStaminaStat"></ul>
           <ul id="heroMagicStat"></ul>
 
         </div>
@@ -44,7 +45,6 @@
         <div id="enemyFightStats">
           <h3 id="enemyFightName"></h3>
           <ul id="enemyHealthStat"></ul>
-          <ul id="enemyStaminaStat"></ul>
           <ul id="enemyMagicStat"></ul>
 
         </div>

@@ -10,7 +10,8 @@
   $("#summonEnemyFamiliarButton").hide();
   $("#startFightButton").hide();
   $("#attackButton").hide();
-  $("#magicAttackButton").hide();
+  $("#specialAttackButton").hide();
+  $("#nextRoundButton").hide();
   $("#battleBox").hide();
 
 
@@ -90,7 +91,7 @@
     $("#startFightButton").hide();
 
     $("#attackButton").show();
-    $("#magicAttackButton").show();
+    $("#specialAttackButton").show();
     $("#battleBox").show();
 
     $("#battleTitle").html("<span class='heroName'>" + heroFamiliar.description.toUpperCase() + "</span>" + " vs " + "<span class='enemyName'>" + enemyFamiliar.description.toUpperCase() + "</span>");
@@ -101,9 +102,30 @@
     if (heroFamiliar.speed >= enemyFamiliar.speed) {
       $("#fightUpdate").html("<span class='heroName'>" + heroFamiliar.description.toUpperCase() + "</span>" + " has a higher speed stat than <span class='enemyName'>" + enemyFamiliar.description.toUpperCase() + "</span>!  &nbsp; You have attacked first!");
       heroAttack();
+      $("#heroHealthStat").html("<li class='listTitle'>HEALTH</li><li>" + heroFamiliar.health + " / " + heroFamiliar.maxhealth);
     } else {
       $("#fightUpdate").html("Enemy <span class='enemyName'>" + enemyFamiliar.description.toUpperCase() + "</span>" + " has a higher speed stat than <span class='heroName'>" + heroFamiliar.description.toUpperCase() + "</span>! &nbsp; Enemy has attacked first!");
+      enemyAttack();
+      $("#enemyHealthStat").html("<li class='listTitle'>HEALTH</li><li>" + enemyFamiliar.health + " / " + enemyFamiliar.maxhealth);
     }
-
-
   })
+
+
+
+    // *** --- ATTACK & SPECIAL ATTACK & NEXT ROUND BUTTONS -- *** //
+
+    $("#attackButton").on("click", function() {
+      heroAttack();
+      $("#fightUpdate").html("Your familiar has attacked the enemy familiar!");
+      $("#attackButton").hide();
+      $("#specialAttackButton").hide();
+      $("#nextRoundButton").show();
+    })
+
+    $("#nextRoundButton").on("click", function() {
+      enemyAttack();
+      $("#fightUpdate").html("Enemy familiar has attacked your familiar!");
+      $("#attackButton").show();
+      $("#specialAttackButton").show();
+      $("#nextRoundButton").hide();
+    })
