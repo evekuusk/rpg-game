@@ -4,7 +4,7 @@ body {
   padding-bottom: 3rem;
 }
 
-.functionBox {
+.gameBox {
   display: inline-block;
   text-align: left;
   width: 60%;
@@ -32,8 +32,6 @@ body {
   margin: 1rem;
   float: right;
 }
-
-
 
 .buttonsBox {
   width: 100%;
